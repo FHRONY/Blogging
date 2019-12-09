@@ -47,15 +47,25 @@
                       <input type="date" name="publish_at" class="form-control" value="{{$post->publish_at}}">
                   </div>
               </div>
-
+              
               <div class="col-xs-12 col-sm-12 col-md-12">
                   <div class="form-group">
                     <strong>Category:</strong>
-                     <div>
-                       <input type="text" name="category" class="form-control" value="{{$post->category}}">
-                     </div>
-                   </div>
-             </div>
+                  <div>
+
+                  <select name="category">
+                    <option value="{{$post->category}}">{{$post->category}}</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="International">International</option>
+                    <option value="Economy">Economy</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Science">Science</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                 </div>
+              </div>
 
              <div class="col-xs-12 col-sm-12 col-md-12">
                  <div class="form-group">

@@ -27,7 +27,18 @@
             <div class="form-group">
               <strong>Category:</strong>
             <div>
-        	    <input type="text" name="category" class="form-control" placeholder="category">
+
+            <select name="category">
+              <option value="">Select</option>
+              <option value="Sports">Sports</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="International">International</option>
+              <option value="Economy">Economy</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Science">Science</option>
+              <option value="Others">Others</option>
+          </select>
+
            </div>
         </div>
 
