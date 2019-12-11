@@ -9,9 +9,7 @@
             <th>Details</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($posts as $post)
-
-        @if(Auth::user()->id == $post->user_id)
+    @foreach ($posts as $post)
 
         <tr>
             <td>{{ $post->id }}</td>
@@ -32,7 +30,7 @@
      </form>
             </td>
         </tr>
-          @endif
+
         @endforeach
   </table>
 

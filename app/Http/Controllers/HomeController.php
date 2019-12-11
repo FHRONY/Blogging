@@ -29,7 +29,7 @@ class HomeController extends Controller
 
       $user = User::find($user_id);
 
-      $posts = Post::all();
+      $posts = Post::where("user_id",$user_id)->get();
 
       return view('index')->with(compact('name', 'posts'));
 

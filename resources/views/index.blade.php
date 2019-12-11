@@ -4,6 +4,9 @@
 
   @section('content')
    @include('inc.messages')
+
+
+
 <div class="btn btn-danger float-right m-2">
   <a class="p-2 text-white"  href="{{ route('logout') }}"
      onclick="event.preventDefault();
@@ -19,7 +22,7 @@
 <br><br>
         <table class="table">
             <tr>
-                <td class="table-active text-center"><h3>News Title</h3>  </td>
+                <td class="table-active text-center"><h3>Your Posted News</h3>  </td>
             </tr>
             <div class="container">
 

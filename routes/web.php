@@ -18,6 +18,7 @@
 route::get('/','WelcomeController@index');
 
 route::resource('posts','PostController');
+route::resource('comments','CommentController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

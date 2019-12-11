@@ -60,9 +60,23 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Go To</a>
         <div class="dropdown-menu" aria-labelledby="dropdown03">
-          <a class="dropdown-item" href="{{route('posts.create'),$post->id}}">Create Posts</a>
-          <a class="dropdown-item" href="{{route('posts.index'),$post->id}}">Posts Index</a>
+          <a class="dropdown-item" href="{{route('posts.create')}}">Create Posts</a>
+          <a class="dropdown-item" href="{{route('posts.index')}}">Posts Index</a>
 
+
+        </div>
+      </li>
+
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" >Category</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown03">
+          <a class="dropdown-item" href="/?category=International">International</a>
+          <a class="dropdown-item" href="/?category=Sports">Sports</a>
+          <a class="dropdown-item" href="/?category=Bangladesh">Bangladesh</a>
+          <a class="dropdown-item" href="/?category=Economy">Economy</a>
+          <a class="dropdown-item" href="/?category=Entertainment">Entertainment</a>
+          <a class="dropdown-item" href="/?category=Science">Science</a>
+          <a class="dropdown-item" href="/?category=Others">Others</a>
 
         </div>
       </li>
@@ -71,7 +85,7 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
 
-  
+
   </div>
 </nav>
 
