@@ -46,9 +46,9 @@ class CommentController extends Controller
     public function store(Post $post,Request $request)
     {
 
-
+         $id=$request->input('post_id');
       Comment::create($request->all());
-         return redirect('/posts/1');
+         return redirect("/posts/$id");
     }
 
     /**
