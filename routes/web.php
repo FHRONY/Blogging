@@ -19,6 +19,10 @@ route::get('/','WelcomeController@index');
 
 route::resource('posts','PostController');
 route::resource('comments','CommentController');
+
+
+route::Post('/posts/{post_id}/create_likes','PostController@create_likes');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

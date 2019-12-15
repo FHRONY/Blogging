@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Like;
 use App\Comment;
 use Illuminate\Http\Request;
 
@@ -90,20 +91,57 @@ class PostController extends Controller
                         ->with('success','Post created successfully.');
     }
 
+    public function create_likes(Request $request)
+    {
+
+       echo $request->post_id;
+       echo auth()->user()->id;
+       $likes=new like;
+       $likes->user_id=auth()->user()->id;
+       $likes->post_id=$request->post_id;
+       $likes->save();
+       return redirect("/posts/$request->post_id");
+
+    }
     /**
      * Display the specified resource.
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
-    {
 
+     public function show(Request $request,Post $post)
+     {
+
+    if(auth()->user())
+    {
+     $likes  = Like::where('user_id', auth()->user()->id) //user_liked_post
+         ->where('post_id', $post->id)
+         ->get();
+
+          $count=count($likes);
+
+      $alllikes = Like::where('post_id',$post->id)->get(); //total Likes
+
+       $total_likes=count($alllikes);
+
+     $comments = Comment::where("post_id",$post->id)->get(); //comment
+
+     return view('posts.show')->with(compact('post','comments','user','count','total_likes'));
+   }
+
+   else {
+
+     $alllikes = Like::where('post_id',$post->id)->get(); //total Likes
+
+      $total_likes=count($alllikes);
 
      $comments = Comment::where("post_id",$post->id)->get();
-    return view('posts.show')->with(compact('post','comments','user'));
 
-    }
+     return view('posts.show')->with(compact('post','comments','total_likes'));
+   }
+
+     }
 
     /**
      * Show the form for editing the specified resource.
@@ -111,7 +149,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Request $request,Post $post)
     {
         return view('posts.edit',compact('post'));
     }
@@ -194,5 +232,7 @@ class PostController extends Controller
     return redirect()->route('posts.index')
                     ->with('success','Post deleted successfully');
     }
+
+
 
 }

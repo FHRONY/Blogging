@@ -7,16 +7,6 @@
 
 
 
-<div class="btn btn-danger float-right m-2">
-  <a class="p-2 text-white"  href="{{ route('logout') }}"
-     onclick="event.preventDefault();
-                   document.getElementById('logout-form').submit();">
-      {{ __('Logout') }}
-  </a>
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-      @csrf
-</div>
-
 
         <h1> Welcome {{Auth::user()->name}} </h1>
 <br><br>

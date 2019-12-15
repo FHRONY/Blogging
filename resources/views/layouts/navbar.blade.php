@@ -49,7 +49,10 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExample03">
+
     <ul class="navbar-nav mr-auto">
+
+  @if(Auth::user())
       <li class="nav-item active">
         <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -66,6 +69,7 @@
 
         </div>
       </li>
+@endif
 
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" >Category</a>
@@ -83,10 +87,24 @@
 
     </ul>
 
+@if(Auth::user())
+
+
     <nav class="my-2 my-md-0 mr-md-3">
 
+      <a class="btn btn-sm btn-outline-secondary text-white"  href="{{ route('logout') }}"
+         onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+          {{ __('Logout') }}
+      </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
+          @csrf
+        </form>
 
-  </div>
+
+@endif
+
+</div>
 </nav>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
