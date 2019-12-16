@@ -27,9 +27,18 @@
 
   @if($count)
 
-    <h3 class="text-success">You already Liked This Post!!</h3>
+    <h3 class="text-success"> You Liked This Post</h3>
+
+    @foreach($likes as $like)
+          <form action="{{ route('comments.destroy',$like->id) }}" method="POST">
 
 
+                        @csrf
+                        @method('DELETE')
+
+            <button type="submit" class="btn btn-danger">Unlike</button>
+         </form>
+    @endforeach
     @else
 
       <form class="" action="/posts/{{$post->id}}/create_likes" method="post">

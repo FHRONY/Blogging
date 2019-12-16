@@ -128,7 +128,7 @@ class PostController extends Controller
 
      $comments = Comment::where("post_id",$post->id)->get(); //comment
 
-     return view('posts.show')->with(compact('post','comments','user','count','total_likes'));
+     return view('posts.show')->with(compact('post','comments','user','count','total_likes','likes'));
    }
 
    else {

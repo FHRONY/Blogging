@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use App\Comment;
+use App\Like;
 
 use Illuminate\Http\Request;
 
@@ -92,8 +93,12 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) //post Unlike
+      {
+
+     $unlike=Like::find($id);
+     $unlike->delete();
+
+        return redirect("/");
     }
 }
