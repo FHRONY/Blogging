@@ -31,7 +31,7 @@
 
     @foreach($likes as $like)
           <form action="{{ route('comments.destroy',$like->id) }}" method="POST">
-
+        <input type="hidden" name="post_id" value="{{$like->post_id}}">
 
                         @csrf
                         @method('DELETE')

@@ -93,12 +93,15 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) //post Unlike
+    public function destroy($id,Request $request) //post Unlike
       {
+
+        $post_id= $request->input('post_id');
+
 
      $unlike=Like::find($id);
      $unlike->delete();
 
-        return redirect("/");
+        return redirect("/posts/$post_id");
     }
 }
