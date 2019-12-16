@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use App\Like;
+use Illuminate\Support\Facades\Storage;
 use App\Comment;
 use Illuminate\Http\Request;
 
@@ -225,14 +226,37 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post,Like $like)
     {
-      $post->delete();
+
+
+         $alllikes = Like::where('post_id',$post->id)->get();
+        if( $alllikes)
+        {
+
+          foreach ($alllikes as $alllike) {
+            $likey=Like::find($alllike->id);
+            $likey->delete();
+          }
+
+          }
+
+      $photo = Post::find($post->id);
+
+          if(Storage::delete('public/images/'.$post->image))
+          {
+
+          $photo->delete();
+
+           }
+
+        $comments = Comment::where("post_id",$post->id);
+           if($comments){
+           $comments->delete();
+         }
 
     return redirect()->route('posts.index')
                     ->with('success','Post deleted successfully');
     }
-
-
 
 }
