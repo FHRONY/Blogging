@@ -3,46 +3,63 @@
   @extends('layouts.navbar')
 
   @section('content')
-   @include('inc.messages')
+
+<img class="img-responsive" width="100%" height="430" src="\Cover/FH RONY WEBSITE COVER.jpg" alt="FH RONY WEBSITE">
+<hr>
+
+        <h1 class="text-info text-center"> Welcome {{Auth::user()->name}} </h1>
+<hr>
+@include('inc.messages')
 
 
+<table class="table">
+    <tr>
+      <td  class="table-active text-center">
+
+        <h3>Your Posted News</h3> </td>
+   </tr>
+</table>
+
+   <div class="container">
+    <div class="m-2">
+      <div class="card mb-4 bg-dark">
+        <div class="card-body p-5 ">
+
+          <div class="custom-scrollbar-css p-2 bg-dark">
 
 
-        <h1> Welcome {{Auth::user()->name}} </h1>
-<br><br>
         <table class="table">
-            <tr>
-                <td class="table-active text-center"><h3>Your Posted News</h3>  </td>
-            </tr>
-            <div class="container">
-
-
 
         @foreach($posts as $post)
-          <tr>
-              <td scope="col">
-                <div class="ml-5">
-                  <ul>
 
-                   <li><a href="{{ route('posts.show',$post->id) }}">  {{$post->title}}</a></li>
+          <tr >
+              <td   scope="col">
 
-                  </ul>
+                <div class="col bg-light" >
 
+                     <a  href="{{ route('posts.show',$post->id) }}" class="text-decoration-none">
+
+                     <img class="img-responsive m-2" width="120" height="120" src="\storage/images/{{$post->image}}" alt="{{$post->image}}">
+
+                    {{ $post->title}}
+
+                    </a>
 
                 </div>
 
-              </td>
 
-          </tr>
+          </td>
+
+      </tr>
 
         @endforeach
 
-        <td scope="col"></td>
-        </div>
-
-
-  </div>
-</div>
 
         </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   @endsection

@@ -37,6 +37,34 @@
           font-size: 3.5rem;
         }
       }
+
+      .custom-scrollbar-js,
+      .custom-scrollbar-css {
+        height: 450px;
+      }
+
+
+
+      .custom-scrollbar-css {
+        overflow-y: scroll;
+      }
+
+
+      .custom-scrollbar-css::-webkit-scrollbar {
+        width: 5px;
+      }
+
+
+      .custom-scrollbar-css::-webkit-scrollbar-track {
+        background: #eee;
+      }
+
+
+      .custom-scrollbar-css::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: #00d2ff;
+        background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
@@ -112,6 +140,5 @@
 </html>
 
 <body>
-  <br>
 	@yield('content')
 </body>

@@ -37,6 +37,36 @@
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
+
+
+ .custom-scrollbar-js,
+ .custom-scrollbar-css {
+   height: 500px;
+ }
+
+
+
+ .custom-scrollbar-css {
+   overflow-y: scroll;
+ }
+
+
+ .custom-scrollbar-css::-webkit-scrollbar {
+   width: 5px;
+ }
+
+
+ .custom-scrollbar-css::-webkit-scrollbar-track {
+   background: #eee;
+ }
+
+
+ .custom-scrollbar-css::-webkit-scrollbar-thumb {
+   border-radius: 1rem;
+   background-color: #00d2ff;
+   background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+ }
+
       }
     </style>
     <!-- Custom styles for this template -->
@@ -44,56 +74,65 @@
     <!-- Custom styles for this template -->
     <link href="blog.css" rel="stylesheet">
   </head>
-  <body>
-
-    <div class="m-2">
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-
-      </div>
-      <div class="col-4 text-center">
-
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-
-        @if (Route::has('login'))
-            <div class="text-muted">
-                @auth
-                    <a class="btn btn-sm btn-outline-secondary" href="{{ url('/home') }}">Home</a>
-                @else
-                    <a class="btn btn-sm btn-outline-secondary" href="{{ route('login') }}">Login</a>
-
-                    @if (Route::has('register'))
-                        <a class="btn btn-sm btn-outline-secondary" href="{{ route('register') }}">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
-      </div>
-    </div>
-
-    </div>
-  </header>
+  <body >
 
 
-<div class="m-4">
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark" >
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-muted" href="/">All</a>
-      <a class="p-2 text-muted" href="/?category=International">International</a>
-      <a class="p-2 text-muted" href="/?category=Sports">Sports</a>
-      <a class="p-2 text-muted" href="/?category=Bangladesh">Bangladesh</a>
-      <a class="p-2 text-muted" href="/?category=Economy">Economy</a>
-      <a class="p-2 text-muted" href="/?category=Entertainment">Entertainment</a>
-      <a class="p-2 text-muted" href="/?category=Science">Science</a>
-      <a class="p-2 text-muted" href="/?category=Others">Others</a>
+    <ul class="navbar-nav ">
+<li class="nav-item active pl-3 pr-5">
+  <a class="nav-link" href="/">All</a>
+</li>
+<li class="nav-item  pr-5">
+  <a class="nav-link active" href="/?category=International">International</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Sports">Sports</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Bangladesh">Bangladesh</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Economy">Economy</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Entertainment">Entertainment</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Science">Science</a>
+</li>
+<li class="nav-item pr-5">
+  <a class="nav-link active" href="/?category=Others">Others</a>
+</li>
+</ul>
 
-    </nav>
+
+
+
+  <div class=" col-2 d-flex justify-content-end align-items-center">
+
+    @if (Route::has('login'))
+        <div class="text-muted text-white">
+            @auth
+                <a class="btn btn-sm btn-outline-light" href="{{ url('/home') }}">Home</a>
+            @else
+                <a class="btn btn-sm btn-outline-light" href="{{ route('login') }}">Login</a>
+
+                @if (Route::has('register'))
+                    <a class="btn btn-sm btn-outline-light" href="{{ route('register') }}">Register</a>
+                @endif
+            @endauth
+        </div>
+    @endif
+
   </div>
-<hr>
+
+
+
+</header>
+
+  </nav>
+
 @yield('content')
 </body>
 </html>
